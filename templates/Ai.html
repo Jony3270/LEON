@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WWW.Leon_AI.com</title>
+    <link rel="stylesheet" href="static/css/Ai.css">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Ai.css') }}">
+    <link rel="stylesheet" href="/1st AI_files/fullpage-011d9e2d31f908bea5844278316cf5e26a2bd02c42e1d73309be721ce82ad5ce.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<style>:root {
+    --primary-color: #6c63ff;
+    --secondary-color: #4d44f9;
+    --accent-color: #ff6584;
+    --text-color: #333333;
+    --text-light: #666666;
+    --background-color: #f9f9f9;
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --success-color: #4caf50;
+    --error-color: #f44336;
+    --warning-color: #ff9800;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --transition: all 0.3s ease;
+    --max-width: 1200px;
+    --gradient-primary: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    --gradient-dark: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    --gradient-light: linear-gradient(135deg, #ffffff, #f5f5f5);
+}
+
+/* Dark Theme Variables */
+.dark-theme {
+    --primary-color: #8c83ff;
+    --secondary-color: #6d64ff;
+    --accent-color: #ff7a98;
+    --text-color: #e0e0e0;
+    --text-light: #b0b0b0;
+    --background-color: #121212;
+    --card-bg: rgba(15, 15, 35, 0.5);
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-secondary);
+    color: var(--text-color);
+    background: linear-gradient(135deg, #0c0c1d, #1f1f3a);
+    line-height: 1.6;
+    position: relative;
+    transition: var(--transition);
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(108, 99, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 101, 132, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header & Navigation */
+header {
+    background: rgba(15, 15, 35, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-icon {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+    padding: 0.3rem 0;
+}
+
+.nav-links a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 2px;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.nav-links a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.nav-links a.active {
+    color: var(--primary-color);
+}
+
+.nav-links a.active::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Remove the old active style since we're using the new one */
+.nav-links a.active::after {
+    display: none;
+}
+
+.theme-toggle {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    color: var(--primary-color);
+    transform: rotate(15deg);
+}
+
+/* Hero Section */
+.hero {
+    height: auto;
+    min-height: 80vh;
+    background: none;
+    position: relative;
+    padding: 8rem 0 4rem;
+    overflow: visible;
+}
+
+.hero::before {
+    content: '';
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(135deg, rgba(13, 13, 38, 0.9), rgba(32, 32, 77, 0.8)),
+        url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0wIDBoNjB2NjBIMHoiLz48cGF0aCBkPSJNMzYuMjUgMjguNWwtOC43NSA1LjA1di0xMC4xbDguNzUgNS4wNXoiIHN0cm9rZT0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjEpIiBzdHJva2Utd2lkdGg9IjAuNSIvPjwvZz48L3N2Zz4=');
+    opacity: 0.9;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    max-width: 800px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin: 1.5rem 0;
+    opacity: 0.9;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.stat-label {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.hero-image {
+    flex: 1;
+    position: relative;
+    height: 300px;
+}
+
+.floating-elements {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.element {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: var(--card-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    animation: float 6s infinite ease-in-out;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.element:nth-child(1) {
+    top: 20%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.element:nth-child(2) {
+    top: 50%;
+    left: 50%;
+    animation-delay: 1s;
+}
+
+.element:nth-child(3) {
+    top: 30%;
+    left: 70%;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Generator Section */
+.generator-section {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0 4rem;
+}
+
+.generator-container {
+    flex: 1;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+}
+
+.generator-container h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.prompt-container {
+    margin-bottom: 1.5rem;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    resize: none;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+}
+
+.prompt-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.primary-btn, .secondary-btn, .action-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius-md);
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--border-color);
+    color: var(--text-color);
+}
+
+.options-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.option {
+    flex: 1;
+    min-width: 150px;
+}
+
+.option label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.result-container {
+    flex: 1;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.result-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    text-align: center;
+}
+
+.result-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.result-image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#result-image {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+.image-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.action-btn {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+}
+
+.action-btn:hover {
+    background-color: var(--border-color);
+}
+
+.loading-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Gallery Section */
+.gallery-section {
+    margin: 4rem 0;
+}
+
+.gallery-section h3 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.gallery-item {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.gallery-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.gallery-info {
+    padding: 1rem;
+}
+
+.gallery-info p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* How It Works Section */
+.how-it-works {
+    margin: 4rem 0;
+    text-align: center;
+}
+
+.how-it-works h3 {
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.step {
+    flex: 1;
+    min-width: 200px;
+    padding: 2rem;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.step:hover {
+    transform: translateY(-5px);
+}
+
+.step-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 1.5rem;
+}
+
+.step h4 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.step p {
+    color: var(--text-light);
+}
+
+/* Footer */
+footer {
+    background-color: var(--card-bg);
+    padding: 3rem 0 1rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.footer-links h4,
+.footer-newsletter h4 {
+    margin-bottom: 1rem;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: var(--text-light);
+    transition: var(--transition);
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+.footer-newsletter p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    max-width: 300px;
+}
+
+.newsletter-form {
+    display: flex;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-right: none;
+    border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
+    font-family: inherit;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+.newsletter-form input:focus {
+    outline: none;
+}
+
+.subscribe-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.subscribe-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .hero,
+    .generator-section {
+        flex-direction: column;
+    }
+    
+    .hero-image {
+        height: 200px;
+    }
+    
+    .steps {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .step {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+    }
+    
+    .hero {
+        padding: 6rem 0 3rem;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .features-grid,
+    .showcase-categories,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 576px) {
+    .prompt-actions,
+    .image-actions {
+        flex-direction: column;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .newsletter-form input {
+        border-right: 1px solid var(--border-color);
+        border-radius: var(--border-radius-md);
+        margin-bottom: 0.5rem;
+    }
+    
+    .subscribe-btn {
+        border-radius: var(--border-radius-md);
+    }
+}
+
+/* Add to existing styles */
+h1 {
+    font-size: 3.5rem;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+h1:hover {
+    transform: scale(1.05);
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+}
+
+.nav-links .premium-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 600;
+}
+
+.nav-links .premium-link i {
+    font-size: 0.9em;
+    background: linear-gradient(135deg, #ffd700, #ffa500);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.nav-links .premium-link::before {
+    background: linear-gradient(135deg, #ffd700, #ffa500);
+}
+
+.nav-links .premium-link:hover {
+    transform: translateY(-2px) scale(1.05);
+    text-shadow: 0 2px 10px rgba(255, 215, 0, 0.2);
+}
+
+.nav-links .premium-link:hover i {
+    transform: rotate(-15deg);
+    transition: transform 0.3s ease;
+}
+
+/* Features Section */
+.features-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, rgba(13, 13, 38, 0.95), rgba(32, 32, 77, 0.95));
+    position: relative;
+    overflow: hidden;
+}
+
+.features-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        linear-gradient(45deg, transparent 48%, rgba(255, 255, 255, 0.05) 50%, transparent 52%),
+        linear-gradient(-45deg, transparent 48%, rgba(255, 255, 255, 0.05) 50%, transparent 52%);
+    background-size: 60px 60px;
+    animation: shimmer 60s linear infinite;
+    opacity: 0.3;
+}
+
+@keyframes shimmer {
+    from { background-position: 0 0; }
+    to { background-position: 1000px 1000px; }
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+    z-index: 2;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #fff, #a5a5a5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color), var(--primary-color));
+    background-size: 200% 100%;
+    animation: gradientMove 3s linear infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
+}
+
+.feature-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: white;
+}
+
+/* Showcase Section */
+.showcase-section {
+    padding: 6rem 0;
+    background: var(--background-color);
+}
+
+.showcase-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.category-card {
+    position: relative;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    aspect-ratio: 16/9;
+}
+
+.category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.category-card:hover img {
+    transform: scale(1.1);
+}
+
+.category-card h3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    margin: 0;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, rgba(15, 15, 35, 0.97), rgba(25, 25, 55, 0.97));
+    position: relative;
+}
+
+.testimonials-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 30% 20%, rgba(108, 99, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(255, 101, 132, 0.1) 0%, transparent 50%);
+    animation: pulseGlow 10s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.3; }
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.testimonial-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.testimonial-content {
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-content i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    opacity: 0.2;
+    margin-bottom: 1rem;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.testimonial-author img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-info h4 {
+    margin: 0;
+    color: var(--text-color);
+}
+
+.author-info p {
+    margin: 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* Enhanced CTA Section */
+.cta-section {
+    padding: 8rem 0;
+    background: linear-gradient(135deg, #1a1a3a, #2d2d5a);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(108, 99, 255, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(255, 101, 132, 0.2) 0%, transparent 40%);
+    animation: ctaGlow 10s ease-in-out infinite alternate;
+}
+
+@keyframes ctaGlow {
+    0% { opacity: 0.5; transform: scale(1); }
+    100% { opacity: 0.8; transform: scale(1.1); }
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.cta-content h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #ffffff, #e0e0e0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 3rem;
+    line-height: 1.8;
+    text-decoration: none;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+/* Enhanced Button Styles */
+.primary-btn, .secondary-btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, #6c63ff, #4d44f9);
+    color: white;
+    border: none;
+    box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+}
+
+.primary-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+    transform: translateX(-100%) rotate(45deg);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(108, 99, 255, 0.4);
+}
+
+.primary-btn:hover::before {
+    transform: translateX(100%) rotate(45deg);
+}
+
+.secondary-btn {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.secondary-btn::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, #6c63ff, #4d44f9);
+    border-radius: 50px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.secondary-btn:hover {
+    color: white;
+    border-color: transparent;
+    transform: translateY(-3px);
+}
+
+.secondary-btn:hover::before {
+    opacity: 1;
+}
+
+/* Remove text decoration from all links */
+a {
+    text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cta-content h2 {
+        font-size: 2.5rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .primary-btn, .secondary-btn {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
+/* Add hover effect for text links */
+.nav-link:hover, 
+.footer-link:hover {
+    color: var(--primary-color);
+    transform: translateY(-1px);
+}
+
+/* Animation Classes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fadeInUp {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Animated Background Elements */
+.hero::after {
+    content: '';
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.2) 50%, transparent 50%),
+        radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.2) 50%, transparent 50%),
+        radial-gradient(2px 2px at 60px 110px, rgba(255, 255, 255, 0.2) 50%, transparent 50%),
+        radial-gradient(2px 2px at 80px 150px, rgba(255, 255, 255, 0.2) 50%, transparent 50%);
+    background-size: 100px 100px;
+    animation: moveStars 100s linear infinite;
+    z-index: 1;
+}
+
+@keyframes moveStars {
+    from { background-position: 0 0; }
+    to { background-position: 1000px 1000px; }
+}
+</style>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <div class="logo">
+                    
+                    <h1>WWW.Leon_AI.com</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('index') }}" class="active">Create</a></li>
+                    <li><a href="{{ url_for('gallery') }}">Gallery</a></li>
+                    <li><a href="{{ url_for('how_it_works') }}">How It Works</a></li>
+                    <li><a href="{{ url_for('premium_pass') }}" class="premium-link" target="_blank"><i class="fas fa-crown"></i> Premium pass</a></li>
+                    <li><a href="{{ url_for('super_pass') }}" class="premium-link" target="_blank"><i class="fas fa-gem"></i> Super pass</a></li>
+                </ul>
+                <div class="theme-toggle">
+                    <i class="fas fa-palette"></i>
+                    <div class="theme-menu">
+                        <div class="theme-option" data-theme="default">
+                            <span class="color-preview default"></span>
+                            <span>Default</span>
+                        </div>
+                        <div class="theme-option" data-theme="cosmic">
+                            <span class="color-preview cosmic"></span>
+                            <span>Cosmic</span>
+                        </div>
+                        <div class="theme-option" data-theme="cyber">
+                            <span class="color-preview cyber"></span>
+                            <span>Cyberpunk</span>
+                        </div>
+                        <div class="theme-option" data-theme="nature">
+                            <span class="color-preview nature"></span>
+                            <span>Nature</span>
+                        </div>
+                        <div class="theme-option" data-theme="neon">
+                            <span class="color-preview neon"></span>
+                            <span>Neon</span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="hero-content">
+                    <h2>Transform Your Ideas Into Images</h2>
+                    <p class="hero-subtitle">Unleash your creativity with Leon, the next-generation AI image generator that brings your imagination to life.</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">1M+</span>
+                            <span class="stat-label">Images Generated</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100K+</span>
+                            <span class="stat-label">Happy Users</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">99%</span>
+                            <span class="stat-label">Satisfaction Rate</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="floating-elements">
+                        <div class="element"><i class="fas fa-paint-brush"></i></div>
+                        <div class="element"><i class="fas fa-magic"></i></div>
+                        <div class="element"><i class="fas fa-image"></i></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="generator-section">
+                <div class="generator-container">
+                    <h3>Create Your Image</h3>
+                    <div class="prompt-container">
+                        <textarea id="prompt-input" placeholder="Describe the image you want to create... (e.g., 'A futuristic city with flying cars and neon lights')"></textarea>
+                        <div class="prompt-actions">
+                            <button id="generate-btn" class="primary-btn">
+                                <i class="fas fa-wand-magic-sparkles"></i> Generate
+                            </button>
+                            <button id="clear-btn" class="secondary-btn">
+                                <i class="fas fa-eraser"></i> Clear
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="options-container">
+                        <div class="option">
+                            <label>Style</label>
+                            <select id="style-select">
+                                <option value="realistic">Realistic</option>
+                                <option value="artistic">Artistic</option>
+                                <option value="cartoon">Cartoon</option>
+                                <option value="fantasy">Fantasy</option>
+                                <option value="sci-fi">Sci-Fi</option>
+                            </select>
+                        </div>
+                        <div class="option">
+                            <label>Quality</label>
+                            <select id="quality-select">
+                                <option value="standard">Standard</option>
+                                <option value="high">High</option>
+                                <option value="premium">Premium</option>
+                            </select>
+                        </div>
+                        <div class="option">
+                            <label>Aspect Ratio</label>
+                            <select id="ratio-select">
+                                <option value="1:1">Square (1:1)</option>
+                                <option value="4:3">Standard (4:3)</option>
+                                <option value="16:9">Widescreen (16:9)</option>
+                                <option value="9:16">Portrait (9:16)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-container" id="result-container">
+                    <div class="result-placeholder" id="result-placeholder">
+                        <i class="fas fa-image"></i>
+                        <p>Your generated image will appear here</p>
+                    </div>
+                    <div class="result-image-container" id="result-image-container" style="display: none;">
+                        <img id="result-image" src="" alt="Generated image">
+                        <div class="image-actions">
+                            <button id="download-btn" class="action-btn">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                            <button id="share-btn" class="action-btn">
+                                <i class="fas fa-share-alt"></i> Share
+                            </button>
+                        </div>
+                    </div>
+                    <div class="loading-indicator" id="loading-indicator" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Creating your masterpiece...</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="gallery-section" id="gallery">
+                <h3>Recent Creations</h3>
+                <div class="gallery-grid" id="gallery-grid">
+                    <!-- Images will be loaded here dynamically -->
+                </div>
+            </section>
+
+            <section class="how-it-works" id="how-it-works">
+                <h3>How It Works</h3>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-keyboard"></i>
+                        </div>
+                        <h4>1. Describe</h4>
+                        <p>Enter a detailed description of the image you want to create</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-sliders-h"></i>
+                        </div>
+                        <h4>2. Customize</h4>
+                        <p>Adjust style, quality, and other settings to your preference</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-wand-magic-sparkles"></i>
+                        </div>
+                        <h4>3. Generate</h4>
+                        <p>Let our AI create your image based on your description</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <h4>4. Download</h4>
+                        <p>Save your creation or share it with others</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features-section">
+                <div class="section-header">
+                    <h2>Why Choose Leon AI?</h2>
+                    <p>Experience the power of cutting-edge artificial intelligence</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Advanced AI Technology</h3>
+                        <p>Powered by state-of-the-art machine learning models trained on millions of high-quality images.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Lightning Fast</h3>
+                        <p>Generate stunning images in seconds with our optimized processing pipeline.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Style Variety</h3>
+                        <p>Choose from multiple artistic styles and customize your creations to perfection.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Secure & Private</h3>
+                        <p>Your data and creations are protected with enterprise-grade security measures.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="showcase-section">
+                <div class="section-header">
+                    <h2>Endless Possibilities</h2>
+                    <p>From digital art to professional designs, Leon AI can create it all</p>
+                </div>
+                <div class="showcase-categories">
+                    <div class="category-card">
+                        <img src="{{ url_for('static', filename='images/art.jpg') }}" alt="Digital Art">
+                        <h3>Digital Art</h3>
+                    </div>
+                    <div class="category-card">
+                        <img src="{{ url_for('static', filename='images/landscape.jpg') }}" alt="Landscapes">
+                        <h3>Landscapes</h3>
+                    </div>
+                    <div class="category-card">
+                        <img src="{{ url_for('static', filename='images/character.jpg') }}" alt="Characters">
+                        <h3>Characters</h3>
+                    </div>
+                </div>
+            </section>
+
+            <section class="testimonials-section">
+                <div class="section-header">
+                    <h2>What Our Users Say</h2>
+                    <p>Join thousands of satisfied creators worldwide</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"Leon AI has revolutionized my creative workflow. The quality of images it generates is simply amazing!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="{{ url_for('static', filename='images/user1.jpg') }}" alt="Sarah Johnson">
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Digital Artist</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <i class="fas fa-quote-left"></i>
+                            <p>"The speed and quality of image generation is unmatched. Leon AI is now an essential part of my design toolkit."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="{{ url_for('static', filename='images/user2.jpg') }}" alt="Michael Chen">
+                            <div class="author-info">
+                                <h4>Michael Chen</h4>
+                                <p>UI/UX Designer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta-section">
+                <div class="cta-content">
+                    <h2>Ready to Transform Your Ideas?</h2>
+                    <p>Join Leon AI today and experience the future of image generation</p>
+                    <div class="cta-buttons">
+                        <a href="#" class="primary-btn">Get Started Free</a>
+                        <a href="#premium" class="secondary-btn">Explore Premium</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    
+                    <h3>WWW.Leon_AI.com</h3>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to our newsletter for the latest features and updates</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Your email address">
+                        <button class="subscribe-btn">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 WWW.Leon_AI.com. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/Ai.js') }}"></script>
+    <script>
+        // Add event listeners for premium links
+        document.querySelectorAll('.premium-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const url = this.getAttribute('href');
+                window.open(url, '_blank', 'width=1200,height=800');
+            });
+        });
+    </script>
+</body>
+</html>
